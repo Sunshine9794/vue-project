@@ -15,11 +15,11 @@ COPY package.json package-lock.json ./
 
 RUN  npm i --registry=https://registry.npmmirror.com/
 
-COPY . .
 
 FROM nginx
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./dist /app/dist
+
 
 
 
