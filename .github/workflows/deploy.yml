@@ -18,7 +18,7 @@ jobs:
         run: |
           echo waste199794 | docker login  --username=820016771@qq.com registry.cn-beijing.aliyuncs.com --password-stdin
           docker image build -t ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest .
-          docker tag ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}} ${{secrets.ALIYUN_DOCKER_IMAGES}}/${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest
+          docker tag ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}} registry.cn-beijing.aliyuncs.com/waste_97/vue-project:latest
           docker push ${{secrets.ALIYUN_DOCKER_IMAGES}}/${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest
           docker logout
       # 登录远程服务器，拉取镜像，制作并重启容器
