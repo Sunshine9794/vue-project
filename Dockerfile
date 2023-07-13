@@ -17,8 +17,8 @@ RUN  npm i --registry=https://registry.npmmirror.com/
 
 COPY . .
 
-FROM nginx:1.12
-COPY ./nginx.conf /etc/nginx/nginx.conf
+FROM nginx
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./dist /app/dist
 
 
