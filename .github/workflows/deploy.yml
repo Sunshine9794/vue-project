@@ -16,7 +16,7 @@ jobs:
       # 制作docker镜像并推送到阿里云容器镜像服务
       - name: build and push docker image
         run: |
-          echo ${{ secrets.ALIYUN_DOCKER_IMAGES }} ${{ secrets.ALIYUN_DOCKER_PASSWORD }} | docker login  --username =${{ secrets.ALIYUN_DOCKER_USERNAME }} --password-stdin
+          echo ${{ secrets.ALIYUN_DOCKER_IMAGES }} ${{ secrets.ALIYUN_DOCKER_PASSWORD }} | docker login  --username=820016771@qq.com registry.cn-beijing.aliyuncs.com --password-stdin
 
           docker image build -t ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest .
           docker tag ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}} ${{secrets.ALIYUN_DOCKER_IMAGES}}/${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest
