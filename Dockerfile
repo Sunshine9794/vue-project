@@ -14,11 +14,13 @@ FROM base AS install
 COPY package.json package-lock.json ./
 
 RUN  npm i --registry=https://registry.npmmirror.com/
+RUN  npm run build
+
+COPY ./dist /app/dist
 
 
 FROM nginx
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./dist /app/dist
 
 
 
