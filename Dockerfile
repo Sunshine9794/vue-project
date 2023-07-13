@@ -14,7 +14,7 @@ FROM base AS install
 COPY package.json package-lock.json ./
 
 RUN  npm i --registry=https://registry.npmmirror.com/
-RUN  npm run build
+RUN  npm run build-only
 
 COPY ./dist /app/dist
 
