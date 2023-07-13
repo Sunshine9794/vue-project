@@ -29,7 +29,7 @@ jobs:
           command: |
             cd /
             echo -e "1.docker login start==>"
-            echo ${{ secrets.ALIYUN_DOCKER_PASSWORD }} | docker login --username ${{ secrets.ALIYUN_DOCKER_USERNAME }} --password-stdin
+            echo waste199794 | docker login  --username=820016771@qq.com registry.cn-beijing.aliyuncs.com --password-stdin
 
             echo -e "2.docker stop myblog container==>"
             docker container stop ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}
@@ -38,13 +38,13 @@ jobs:
             docker container rm ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}
 
             echo -e "4.docker image rm==>"
-            docker image rm ${{secrets.ALIYUN_DOCKER_IMAGES}}/${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest
+            docker image rm registry.cn-beijing.aliyuncs.com/waste_97/vue-project:latest
 
             echo -e "5.docker pull==>"
-            docker pull ${{secrets.ALIYUN_DOCKER_IMAGES}}/${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest
+            docker pull registry.cn-beijing.aliyuncs.com/waste_97/vue-project:latest
 
             echo -e "6.docker container create and start==>"
-            docker container run -d -p 80:80 --name ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}} ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}}:latest
+            docker container run -d -p 80:80 --name ${{secrets.ALIYUN_DOCKER_PROJECT_NAME}} registry.cn-beijing.aliyuncs.com/waste_97/vue-project:latest
 
             echo -e "7.docker logout==>"
             docker logout
